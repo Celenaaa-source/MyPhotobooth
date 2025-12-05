@@ -60,29 +60,33 @@ function capturePhoto() {
         return;
     }
 
-    // Setup canvas dengan dimensi video
+    // Setup canvas sesuai ukuran video
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
-    
+
     const ctx = canvas.getContext('2d');
-    
-    // Draw video frame ke canvas
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    
+
+    // BALIKKAN gambar agar tidak mirror
+    ctx.save();
+    ctx.scale(-1, 1); 
+    ctx.drawImage(video, -canvas.width, 0, canvas.width, canvas.height);
+    ctx.restore();
+
     // Flash effect
     filterOverlay.classList.add('active');
-    setTimeout(() => {
-        filterOverlay.classList.remove('active');
-    }, 500);
-    
-    // Convert ke blob dan simpan
+    setTimeout(() => filterOverlay.classList.remove('active'), 500);
+
+    // Simpan sebagai blob
     canvas.toBlob(blob => {
         const url = URL.createObjectURL(blob);
         photos.push({
             url: url,
             timestamp: new Date().getTime()
         });
-        
+
+        renderPhotos();
+    }, 'image/jpeg', 0.95);
+}   
         renderPhotos();
     }, 'image/jpeg', 0.95);
 }
