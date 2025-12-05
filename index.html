@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photobooth Pastel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PHOTOBOOTH BY CELENA CANTIK</h1>
+            <p>Ambil Foto imutmu😉🤞</p>
+        </div>
+
+        <div class="photobooth-wrapper">
+            <div class="camera-section">
+                <video id="video" autoplay playsinline></video>
+                <div class="filter-overlay" id="filterOverlay"></div>
+            </div>
+
+            <div class="controls-section">
+                <button id="captureBtn" class="btn btn-primary">📸 Narsis lu</button>
+                <button id="toggleCameraBtn" class="btn btn-secondary">🎥 Hidupin kamera pinter</button>
+            </div>
+
+            <div class="gallery-section">
+                <h2>Potret orang narsis</h2>
+                <div class="photo-grid" id="photoGrid">
+                    <!-- Foto akan ditampilkan di sini -->
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button id="downloadAllBtn" class="btn btn-download">💾 Download GA FOTONYA!</button>
+            <button id="clearAllBtn" class="btn btn-danger">🗑️ Hapus dah fotonya</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
