@@ -119,7 +119,7 @@ body {
 }
 
 .btn:active {
-    transform: translateY(-1px);
+    transform: scaleX(1);
 }
 
 .btn-primary {
